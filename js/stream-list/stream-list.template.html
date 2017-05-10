@@ -1,0 +1,86 @@
+<div class="alert alert-info" ng-show="!$ctrl.search">Enter a search term to begin</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9 info">
+			<span ng-show="$ctrl.search">
+				<b>{{$ctrl.numResults}}</b> results for <b>{{$ctrl.search}}</b>
+			</span>
+		</div>
+		<div class="col-md-3 info">
+			Results per page: 
+			<select ng-model="$ctrl.perPage" ng-change="$ctrl.perPageChanged()" ng-options="item as item for item in $ctrl.perPageValues" class="form-control perPageSelect">
+			</select>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<nav>
+			  <ul class="pager">
+				<li ng-class="{disabled:$ctrl.page<=1}">
+					<a ng-href="{{$ctrl.prevLink}}"><span class="glyphicon glyphicon-chevron-left" />Previous</a>
+				</li>
+				<li ng-show="$ctrl.streams.length>0">{{$ctrl.page}}/{{$ctrl.totalPages}}</li>
+				<li ng-class="{disabled:!($ctrl.hasNextPage)}">
+					<a ng-href="{{$ctrl.nextLink}}">Next<span class="glyphicon glyphicon-chevron-right" /></a>
+				</li>
+			  </ul>
+			</nav>
+		</div>
+	</div>
+</div>
+
+<div class="alert alert-info" ng-show="($ctrl.streams == null || $ctrl.streams.length===0) && $ctrl.search">No streams found. </div>
+
+<div class="panel panel-default col-md-12" ng-repeat="stream in $ctrl.streams">
+    <div class="panel-body">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<a ng-href="{{stream.channel.url}}"><img ng-src="{{stream.preview.medium}}" /></a>
+				</div>
+				<div class="col-md-6">
+					<a ng-href="{{stream.channel.url}}"><h3>{{stream.channel.name}}</h3></a>
+					<h4>{{stream.game}} - {{stream.viewers}} viewers</h4>
+					{{stream.channel.status}}
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<div ng-show="$ctrl.streams.length>5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav>
+				  <ul class="pager">
+					<li ng-class="{disabled:$ctrl.page<=1}">
+						<a ng-href="{{$ctrl.prevLink}}"><span class="glyphicon glyphicon-chevron-left" />Previous</a>
+					</li>
+					<li>{{$ctrl.page}}/{{$ctrl.totalPages}}</li>
+					<li ng-class="{disabled:!($ctrl.hasNextPage)}">
+						<a ng-href="{{$ctrl.nextLink}}">Next<span class="glyphicon glyphicon-chevron-right" /></a>
+					</li>
+				  </ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9 info">
+				<b>{{$ctrl.numResults}}</b> results for <b>{{$ctrl.search}}</b>
+			</div>
+			<div class="col-md-3 info">
+				Results per page: 
+				<select ng-model="$ctrl.perPage" ng-change="$ctrl.perPageChanged()" ng-options="item as item for item in $ctrl.perPageValues" class="form-control perPageSelect">
+				</select>
+			</div>
+		</div>
+	</div>
+</div>

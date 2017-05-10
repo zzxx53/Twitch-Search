@@ -1,1 +1,41 @@
-<h1>Hello!</h1>
+<!DOCTYPE html>
+
+<html ng-app="twitchSearch">
+    <head>
+        <meta charset="utf-8">
+        <title>Twitch stream search</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://code.angularjs.org/1.6.2/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.js"></script>
+        <script src="js/app.module.js"></script>
+        <script src="js/app.config.js"></script>
+        <script src="js/stream-list/stream-list.component.js"></script>
+        <script src="js/stream-list/stream-list.module.js"></script>
+		<script src="js/search-box/search-box.component.js"></script>
+        <script src="js/search-box/search-box.module.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+				<div class="row">
+					<div class="col-md-1 info title">
+						<img src="img/twitch_logo.svg" style="width:80px;margin: auto;" />
+					</div>
+					<div class="col-md-6 info searchBox">
+						<search-box></search-box>
+					</div>
+				</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-md-12">
+                <div ng-view></div>
+            </div>
+        </div>
+		<div class="footer">
+		</div>
+    </body>
+</html>

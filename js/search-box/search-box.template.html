@@ -1,0 +1,8 @@
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Search for..." ng-model="$ctrl.search" ng-keypress="$ctrl.keyPressed($event)">
+  <div class="input-group-btn">
+	<button class="btn btn-default" type="submit" ng-click="$ctrl.searchChanged()">
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+  </div>
+</div>

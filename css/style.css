@@ -1,0 +1,23 @@
+.title{
+	padding:10px;
+	
+}
+
+.searchBox{
+	padding-top:5px;
+}
+
+.perPageSelect{
+	display:inline-block;
+	width:70px;
+}
+
+.info{
+	vertical-align:middle;
+}
+
+.footer{
+	clear:both;
+	width:100%;
+	padding:10px;
+}
