@@ -21,11 +21,11 @@ angular.
 						self.streams = response.data.streams;
 						self.numResults = response.data._total;
 						self.hasNextPage = self.page<=(self.numResults/self.perPage);
-						self.prevLink='javascript:;';
+						self.prevLink='javascript:void(0);';
 						if (self.page > 1){
 							self.prevLink='#!/'+self.search+'/'+self.perPage+'/'+(self.page-1);
 						}
-						self.nextLink='javascript:;';
+						self.nextLink='javascript:void(0);';
 						if (self.hasNextPage){
 							self.nextLink='#!/'+self.search+'/'+self.perPage+'/'+(self.page+1);
 						}
